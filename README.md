@@ -12,7 +12,7 @@ POC app using [pokeapi](https://pokeapi.co/docs/v2) to practice android/kotlin
 The development of this simple app will be done in discrete "lessons". Each lesson should cover one topic to focus on. The process is learning by doing, so each lesson will require to perform a task, with some hints to be followed. Also, each lesson will contain a list of terms that the student may
 need to look up to finish the lesson.
 
-The lesson statements can be found in this repository's wiki.
+The lesson statements can be found in this repository's [wiki](https://github.com/FranGarc/LearningPath/wiki/Learning-Path).
 
 ## Gitflow
 
