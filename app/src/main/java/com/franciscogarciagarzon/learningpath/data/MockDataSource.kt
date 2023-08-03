@@ -1,4 +1,11 @@
-package com.franciscogarciagarzon.learningpath
+package com.franciscogarciagarzon.learningpath.data
+
+import com.franciscogarciagarzon.learningpath.data.model.Pokemon
+import com.franciscogarciagarzon.learningpath.data.model.PokemonDetail
+import com.franciscogarciagarzon.learningpath.data.model.PokemonList
+import com.franciscogarciagarzon.learningpath.data.model.Sprites
+import com.franciscogarciagarzon.learningpath.data.model.Stat
+import com.franciscogarciagarzon.learningpath.data.model.Stats
 
 class MockDataSource {
 
@@ -29,6 +36,33 @@ class MockDataSource {
     )
 
 
+    private val pokemonDetail = PokemonDetail(
+        name = "Ditto",
+        baseExperience = 101,
+        height = 3,
+        weight = 40,
+        stats = Stats(
+            hp = Stat(name = "hp", 75),
+            attack = Stat(name = "attack", value = 34),
+            defense = Stat(name = "defense", value = 42),
+            specialAttack = Stat(name = "Sp. Attack", 26),
+            specialDefense = Stat(name = "Sp. Defense", value = 45),
+            speed = Stat("speed", value = 37)
+        ),
+        sprites = Sprites(
+            frontDefault = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+            backDefault = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png",
+            frontFemale = null,
+            backFemale = null,
+            frontShiny = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png",
+            backShiny = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/132.png",
+            frontShinyFemale = null,
+            backShinyFemale = null,
+        ),
+        types = listOf("normal")
+    )
+
     fun getPokemonList(): PokemonList = this.pokemonList
 
+    fun getPokemonDetail(id: String): PokemonDetail = this.pokemonDetail
 }
