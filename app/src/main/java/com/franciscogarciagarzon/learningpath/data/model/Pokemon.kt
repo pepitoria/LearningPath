@@ -1,4 +1,4 @@
-package com.franciscogarciagarzon.learningpath
+package com.franciscogarciagarzon.learningpath.data.model
 
 data class Pokemon(
     val defaultSprite: String,
