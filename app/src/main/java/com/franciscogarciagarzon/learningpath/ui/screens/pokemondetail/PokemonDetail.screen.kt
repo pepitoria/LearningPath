@@ -18,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.franciscogarciagarzon.learningpath.R
 import com.franciscogarciagarzon.learningpath.data.MockDataSource
-import com.franciscogarciagarzon.learningpath.data.model.PokemonDetail
 import com.franciscogarciagarzon.learningpath.ui.screens.components.BoldLabel
 import com.franciscogarciagarzon.learningpath.ui.screens.components.BoldLabel30
 import com.franciscogarciagarzon.learningpath.ui.screens.components.BoldLabel40
@@ -30,7 +29,8 @@ import com.franciscogarciagarzon.learningpath.ui.theme.Purple80
 
 
 @Composable
-fun PokemonDetail(pokemonDetail: PokemonDetail) {
+fun PokemonDetail(id: String) {
+    val pokemonDetail = MockDataSource().getPokemonDetail(id)
     LearningPathTheme {
         val scrollState = rememberScrollState()
         Column(
@@ -77,8 +77,7 @@ fun PokemonDetail(pokemonDetail: PokemonDetail) {
                 modifier = Modifier
                     .fillMaxWidth(),
             ) {
-                // type/s
-                val types = pokemonDetail.types
+                // weight & height
                 Row(
                     modifier = Modifier
                         .weight(0.5f),
@@ -87,7 +86,7 @@ fun PokemonDetail(pokemonDetail: PokemonDetail) {
                     BoldLabel(text = "Weight: ")
                     RegularLabel(text = "${pokemonDetail.weight / 10} Kg")
                 }
-                // height & weigt
+
                 Row(
                     modifier = Modifier
                         .weight(0.5f),
@@ -126,8 +125,6 @@ fun PokemonDetail(pokemonDetail: PokemonDetail) {
 @Composable
 fun PokemonListPreview() {
     LearningPathTheme {
-        PokemonDetail(
-            pokemonDetail = MockDataSource().getPokemonDetail("")
-        )
+        PokemonDetail(id = "")
     }
 }

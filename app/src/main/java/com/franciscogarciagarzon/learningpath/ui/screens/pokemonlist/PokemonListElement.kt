@@ -1,5 +1,6 @@
 package com.franciscogarciagarzon.learningpath.ui.screens.pokemonlist
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,11 +21,12 @@ import com.franciscogarciagarzon.learningpath.data.model.Pokemon
 import com.franciscogarciagarzon.learningpath.ui.screens.components.RemoteImage
 
 @Composable
-fun PokemonListElement(pokemon: Pokemon) {
+fun PokemonListElement(pokemon: Pokemon, clickAction: () -> Unit) {
     Row(
         modifier = Modifier
             .height(120.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { clickAction() },
         verticalAlignment = Alignment.CenterVertically
     ) {
         RemoteImage(
@@ -49,6 +51,7 @@ fun PokemonListElement(pokemon: Pokemon) {
 @Composable
 fun ListElementPreview() {
     PokemonListElement(
-        pokemon = MockDataSource().getPokemonList().pokemons.first()
+        pokemon = MockDataSource().getPokemonList().pokemons.first(),
+        clickAction = {}
     )
 }
