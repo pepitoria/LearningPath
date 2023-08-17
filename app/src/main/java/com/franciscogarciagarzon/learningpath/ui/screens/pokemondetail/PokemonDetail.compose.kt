@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.franciscogarciagarzon.learningpath.R
-import com.franciscogarciagarzon.learningpath.data.MockDataSource
 import com.franciscogarciagarzon.learningpath.data.model.PokemonDetail
 import com.franciscogarciagarzon.learningpath.ui.screens.components.BoldLabel
 import com.franciscogarciagarzon.learningpath.ui.screens.components.BoldLabel30
@@ -28,7 +27,7 @@ import com.franciscogarciagarzon.learningpath.ui.theme.Purple80
 
 @Composable
 fun PokemonDetail(
-    pokemonDetail: PokemonDetail = MockDataSource().getPokemonDetail(""),
+    pokemonDetail: PokemonDetail,
     innerPadding: PaddingValues,
 ) {
     val scrollState = rememberScrollState()

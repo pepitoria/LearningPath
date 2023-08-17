@@ -1,10 +1,10 @@
 package com.franciscogarciagarzon.learningpath.data.model
 
 data class Stats(
-    val attack: Stat,
-    val defense: Stat,
-    val hp: Stat,
-    val specialAttack: Stat,
-    val specialDefense: Stat,
-    val speed: Stat
+    val attack: Stat = Stat(),
+    val defense: Stat = Stat(),
+    val hp: Stat = Stat(),
+    val specialAttack: Stat = Stat(),
+    val specialDefense: Stat = Stat(),
+    val speed: Stat = Stat(),
 )

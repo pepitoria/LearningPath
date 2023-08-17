@@ -62,7 +62,7 @@ class MockDataSource {
         types = listOf("normal")
     )
 
-    fun getPokemonList(): PokemonList = this.pokemonList
+    suspend fun getPokemonList(): PokemonList = this.pokemonList
 
-    fun getPokemonDetail(id: String): PokemonDetail = this.pokemonDetail
+    suspend fun getPokemonDetail(id: String): PokemonDetail = this.pokemonDetail
 }

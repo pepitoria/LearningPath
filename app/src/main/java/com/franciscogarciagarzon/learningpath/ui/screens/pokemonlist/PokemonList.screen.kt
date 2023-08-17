@@ -6,8 +6,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.franciscogarciagarzon.learningpath.ui.screens.navigation.BottomNavBar
 import com.franciscogarciagarzon.learningpath.ui.theme.LearningPathTheme
 
@@ -21,12 +24,17 @@ fun PokemonList(
     favNavigation: () -> Unit = {}
 ) {
 
+    val viewModel = viewModel<PokemonListViewModel>()
+    val pokemonListFlow by viewModel.uiState.collectAsState()
+    viewModel.getPokemonList()
+
     LearningPathTheme {
         Scaffold(
 
             content = { innerPadding ->
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     PokemonList(
+                        pokemonList = pokemonListFlow,
                         innerPadding = innerPadding,
                         showPokemonDetail = showPokemonDetail
                     )
