@@ -6,6 +6,9 @@ import com.franciscogarciagarzon.learningpath.data.model.PokemonList
 import com.franciscogarciagarzon.learningpath.data.model.Sprites
 import com.franciscogarciagarzon.learningpath.data.model.Stat
 import com.franciscogarciagarzon.learningpath.data.model.Stats
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class MockDataSource {
 
@@ -62,7 +65,13 @@ class MockDataSource {
         types = listOf("normal")
     )
 
-    suspend fun getPokemonList(): PokemonList = this.pokemonList
+    suspend fun getPokemonList(): Flow<PokemonList> = flow {
+        delay(1000)
+        emit(pokemonList)
+    }
 
-    suspend fun getPokemonDetail(id: String): PokemonDetail = this.pokemonDetail
+    suspend fun getPokemonDetail(id: String): Flow<PokemonDetail> = flow {
+        delay(1000)
+        emit(pokemonDetail)
+    }
 }
