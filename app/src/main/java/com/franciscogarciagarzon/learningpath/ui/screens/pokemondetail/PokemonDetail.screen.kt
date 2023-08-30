@@ -29,11 +29,7 @@ fun PokemonDetail(id: String, navigateUp: () -> Unit = {}) {
             },
             content = { innerPadding ->
                 Log.d("PokemonDetailScreen", "Composable pokemonDetail: $pokemonDetail")
-                if (pokemonDetail.name.isNotBlank()) {
-                    // since we're using the _ugly hack_ of default "blank" pokemonDetail, we need to make sure we're not displaying those blanks
-                    // this would be solved with a loading state (could be cool to use animations on said state, as short as it may be)
-                    PokemonDetail(pokemonDetail, innerPadding)
-                }
+                PokemonDetail(pokemonDetail, innerPadding)
             }
         )
 

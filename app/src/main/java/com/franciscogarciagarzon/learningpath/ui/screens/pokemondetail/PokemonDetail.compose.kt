@@ -68,7 +68,7 @@ fun PokemonDetail(
             ) {
                 val types = pokemonDetail.types
                 BoldLabel(text = "Type(s): ")
-                RegularLabel(text = pokemonDetail.types.first())
+                RegularLabel(text = pokemonDetail.types.firstOrNull() ?: "")
                 if (types.size > 1) {
                     BoldLabel(text = " / ")
                     RegularLabel(text = pokemonDetail.types.last())
