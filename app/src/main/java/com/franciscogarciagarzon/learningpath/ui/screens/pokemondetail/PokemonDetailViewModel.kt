@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 
 class PokemonDetailViewModel : ViewModel() {
     private val dataSource = MockDataSource()
-    private var _uiState = MutableStateFlow<PokemonDetail>(PokemonDetail())
-    val uiState = _uiState
+    private var _pokemonDetail = MutableStateFlow<PokemonDetail>(PokemonDetail())
+    val pokemonDetail = _pokemonDetail
     fun getPokemonDetail(pokemonId: String) {
         viewModelScope.launch {
             Log.d("PokemonDetailViewModel", "getPokemonDetail launched with id: $pokemonId")
@@ -25,7 +25,7 @@ class PokemonDetailViewModel : ViewModel() {
                     Log.e("PokemonDetailViewModel", "exception: ${e.message}", e)
                 }
                 .collect() { pokemonDetail ->
-                    _uiState.value = pokemonDetail
+                    _pokemonDetail.value = pokemonDetail
                 }
         }
     }

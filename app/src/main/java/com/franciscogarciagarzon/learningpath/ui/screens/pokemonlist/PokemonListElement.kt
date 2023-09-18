@@ -30,7 +30,7 @@ fun PokemonListElement(pokemon: Pokemon, clickAction: () -> Unit) {
         RemoteImage(
             imageUrl = pokemon.defaultSprite,
             contentDescription = pokemon.name,
-            errorResource = R.drawable.pokeball_icon,
+            errorResource = R.drawable.ic_pokeball_blank,
             placeholderResource = R.drawable.pokeball_icon
         )
 

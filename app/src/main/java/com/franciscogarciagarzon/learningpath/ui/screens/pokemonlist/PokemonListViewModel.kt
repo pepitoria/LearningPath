@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 class PokemonListViewModel : ViewModel() {
     private val dataSource = MockDataSource()
 
-    private val _uiState: MutableStateFlow<PokemonList> = MutableStateFlow<PokemonList>(PokemonList(emptyList()))
-    val uiState = _uiState
+    private val _pokemonList: MutableStateFlow<PokemonList> = MutableStateFlow<PokemonList>(PokemonList(emptyList()))
+    val pokemonList = _pokemonList
     fun getPokemonList() {
         viewModelScope.launch {
             Log.d("PokemonListViewModel", "getPokemonList launched")
@@ -25,7 +25,7 @@ class PokemonListViewModel : ViewModel() {
                     Log.e("PokemonListViewModel", "exception: ${e.message}", e)
                 }
                 .collect() { pokemonList ->
-                    _uiState.value = pokemonList
+                    this@PokemonListViewModel._pokemonList.value = pokemonList
                 }
         }
     }

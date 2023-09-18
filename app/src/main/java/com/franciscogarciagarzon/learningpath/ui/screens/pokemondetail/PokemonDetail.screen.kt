@@ -16,7 +16,7 @@ import com.franciscogarciagarzon.learningpath.ui.theme.LearningPathTheme
 @Composable
 fun PokemonDetail(id: String, navigateUp: () -> Unit = {}) {
     val viewModel = viewModel<PokemonDetailViewModel>()
-    val pokemonDetail by viewModel.uiState.collectAsState()
+    val pokemonDetail by viewModel.pokemonDetail.collectAsState()
     viewModel.getPokemonDetail(pokemonId = id)
     LearningPathTheme {
         Scaffold(

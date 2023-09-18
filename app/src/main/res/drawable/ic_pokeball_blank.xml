@@ -16,10 +16,10 @@
             android:fillColor="@color/white"
             android:pathData="M347.1,297L347.1,297C347,297 347,297 347.1,297c-0.1,-6.1 -1.2,-11.9 -3.2,-17.3c-7,-18.8 -25.1,-32.1 -46.3,-32.1s-39.3,13.4 -46.3,32.1c-2,5.4 -3.1,11.2 -3.1,17.3c0,0 0,0 0,0h0.1c0,0 0,0 0,0c0,6.1 1.1,11.9 3.1,17.3c7,18.8 25.1,32.1 46.3,32.1c21.2,0 39.3,-13.4 46.3,-32.1C346,309 347.1,303.1 347.1,297C347.1,297 347.1,297 347.1,297z" />
         <path
-            android:fillColor="@color/pokeRed"
+            android:fillColor="@color/white"
             android:pathData="M297.7,213.2c40.4,0 74.1,28.6 82.1,66.6h134.4C504.7,169.2 412,82.5 299,82.5S93.4,169.2 83.9,279.7h131.7C223.6,241.7 257.3,213.2 297.7,213.2z" />
         <path
-            android:fillColor="@color/pokeRedShadow"
+            android:fillColor="@color/pokeWhiteDark"
             android:pathData="M458.3,279.7h55.8c-8.2,-95.5 -78.6,-173.3 -170.5,-192.6C407.4,120.8 452.9,193.7 458.3,279.7z" />
         <path
             android:fillColor="@color/black"

@@ -25,7 +25,7 @@ fun PokemonList(
 ) {
 
     val viewModel = viewModel<PokemonListViewModel>()
-    val pokemonListFlow by viewModel.uiState.collectAsState()
+    val pokemonListFlow by viewModel.pokemonList.collectAsState()
     viewModel.getPokemonList()
 
     LearningPathTheme {
