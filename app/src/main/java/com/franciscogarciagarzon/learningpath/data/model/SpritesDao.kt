@@ -1,6 +1,6 @@
 package com.franciscogarciagarzon.learningpath.data.model
 
-data class Sprites(
+data class SpritesDao(
     val backDefault: String = "",
     val backFemale: String? = null,
     val backShiny: String = "",

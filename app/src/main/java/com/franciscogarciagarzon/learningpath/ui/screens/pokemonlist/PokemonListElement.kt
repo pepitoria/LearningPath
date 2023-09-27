@@ -15,11 +15,11 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.franciscogarciagarzon.learningpath.R
-import com.franciscogarciagarzon.learningpath.data.model.Pokemon
+import com.franciscogarciagarzon.learningpath.domain.model.PokemonDto
 import com.franciscogarciagarzon.learningpath.ui.screens.components.RemoteImage
 
 @Composable
-fun PokemonListElement(pokemon: Pokemon, clickAction: () -> Unit) {
+fun PokemonListElement(pokemon: PokemonDto, clickAction: () -> Unit) {
     Row(
         modifier = Modifier
             .height(120.dp)

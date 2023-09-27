@@ -5,14 +5,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import com.franciscogarciagarzon.learningpath.data.MockDataSource
-import com.franciscogarciagarzon.learningpath.data.model.PokemonList
+import com.franciscogarciagarzon.learningpath.domain.model.PokemonListDto
 
 @Composable
 fun PokemonList(
-    pokemonList: PokemonList,
+    pokemonList: PokemonListDto,
     innerPadding: PaddingValues,
-    showPokemonDetail: (pokemonName: String) -> Unit) {
+    showPokemonDetail: (pokemonName: String) -> Unit
+) {
     LazyColumn(modifier = androidx.compose.ui.Modifier.padding(innerPadding)) {
 //        val pokemonList = MockDataSource().getPokemonList()
         items(pokemonList.pokemons.size) { index ->
