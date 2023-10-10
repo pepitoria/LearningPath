@@ -7,6 +7,10 @@ import com.franciscogarciagarzon.learningpath.data.model.SpritesDao
 import com.franciscogarciagarzon.learningpath.data.model.StatDao
 import com.franciscogarciagarzon.learningpath.data.model.StatsDao
 import com.franciscogarciagarzon.learningpath.domain.DatasourceAdapter
+import com.franciscogarciagarzon.learningpath.domain.model.PokemonDetailDto
+import com.franciscogarciagarzon.learningpath.domain.model.PokemonListDto
+import com.franciscogarciagarzon.learningpath.domain.model.toPokemonDetailDto
+import com.franciscogarciagarzon.learningpath.domain.model.toPokemonListDto
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -66,13 +70,13 @@ class MockDataSource : DatasourceAdapter {
         types = listOf("normal")
     )
 
-    override suspend fun getPokemonList(): Flow<PokemonListDao> = flow {
+    override suspend fun getPokemonList(): Flow<PokemonListDto> = flow {
         delay(1000)
-        emit(pokemonList)
+        emit(pokemonList.toPokemonListDto())
     }
 
-    override suspend fun getPokemonDetail(id: String): Flow<PokemonDetailDao> = flow {
+    override suspend fun getPokemonDetail(id: String): Flow<PokemonDetailDto> = flow {
         delay(1000)
-        emit(pokemonDetail)
+        emit(pokemonDetail.toPokemonDetailDto())
     }
 }
