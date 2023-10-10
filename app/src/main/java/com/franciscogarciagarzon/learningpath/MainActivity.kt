@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                                 route = Screen.PokemonDetail.createRoute(pokemonName)
                             )
                         },
-                        favNavigation = { navController.navigate(route = Screen.PokemonDetail.createRoute("123")) }
+                        favNavigation = { navController.navigate(route = Screen.PokemonDetail.createRoute("charizard")) }
                     )
                 }
                 composable(route = Screen.PokemonDetail.route)

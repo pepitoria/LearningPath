@@ -18,7 +18,7 @@ class PokemonListViewModel : ViewModel() {
     private val _uiState: MutableStateFlow<PokemonListDto> = MutableStateFlow<PokemonListDto>(PokemonListDto(emptyList()))
     val uiState = _uiState
     fun getPokemonList() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             Log.d("PokemonListViewModel", "getPokemonList launched")
             getListUseCase()
                 .flowOn(Dispatchers.IO)

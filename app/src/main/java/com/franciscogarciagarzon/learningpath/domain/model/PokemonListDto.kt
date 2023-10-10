@@ -1,6 +1,6 @@
 package com.franciscogarciagarzon.learningpath.domain.model
 
-import com.franciscogarciagarzon.learningpath.data.model.PokemonListDao
+import com.franciscogarciagarzon.learningpath.data.remote.model.PokemonListDao
 
 data class PokemonListDto(
     val pokemons: List<PokemonDto>
@@ -8,9 +8,8 @@ data class PokemonListDto(
 
 
 fun PokemonListDao.toPokemonListDto(): PokemonListDto {
-    return PokemonListDto(pokemons = this.pokemons.map { pokemonDao -> pokemonDao.toPokemonDto() })
+    return PokemonListDto(pokemons = this.results.map { pokemonDao -> pokemonDao.toPokemonDto() })
 }
-
 
 
 

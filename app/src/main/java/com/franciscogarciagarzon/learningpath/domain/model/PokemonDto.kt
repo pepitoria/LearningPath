@@ -1,18 +1,26 @@
 package com.franciscogarciagarzon.learningpath.domain.model
 
-import com.franciscogarciagarzon.learningpath.data.model.PokemonDao
-
 data class PokemonDto(
     val defaultSprite: String,
     val name: String,
     val url: String
 )
 
+fun pokemonUrlToSpriteUrl(url: String): String {
+    val spriteUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
+    val segments = url.split("/").toMutableList()
+    segments.removeAll(listOf("", null))
+    val id = segments.last()
 
-fun PokemonDao.toPokemonDto(): PokemonDto {
+    return "$spriteUrl$id.png"
+
+}
+
+fun com.franciscogarciagarzon.learningpath.data.remote.model.PokemonDao.toPokemonDto(): PokemonDto {
     return PokemonDto(
-        defaultSprite = this.defaultSprite,
+        defaultSprite = pokemonUrlToSpriteUrl(this.url),
         name = this.name,
         url = this.url
     )
+
 }

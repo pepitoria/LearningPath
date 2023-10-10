@@ -15,6 +15,6 @@ fun RegularLabel(text: String, modifier: Modifier = Modifier) {
         modifier = modifier
             .padding(start = 5.dp, end = 5.dp),
         text = text.capitalize(locale = Locale.current),
-        fontSize = 26.sp,
+        fontSize = 18.sp,
     )
 }

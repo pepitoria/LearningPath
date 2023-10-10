@@ -17,9 +17,9 @@ class PokemonDetailViewModel : ViewModel() {
     private var _uiState = MutableStateFlow<PokemonDetailDto>(PokemonDetailDto())
     val uiState = _uiState
     fun getPokemonDetail(pokemonId: String) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             Log.d("PokemonDetailViewModel", "getPokemonDetail launched with id: $pokemonId")
-            getPokemonDetailUseCase.invoke(pokemonName = pokemonId)
+            getPokemonDetailUseCase(pokemonName = pokemonId)
                 .flowOn(Dispatchers.IO)
                 .catch { e ->
                     Log.e("PokemonDetailViewModel", "exception: ${e.message}", e)

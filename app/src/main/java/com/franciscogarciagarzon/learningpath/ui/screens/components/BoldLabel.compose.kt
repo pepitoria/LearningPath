@@ -18,7 +18,7 @@ fun BoldLabel(text: String, modifier: Modifier = Modifier, textAlignment: TextAl
         modifier = modifier
             .padding(5.dp, end = 5.dp),
         text = text.capitalize(locale = Locale.current),
-        fontSize = 26.sp,
+        fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
         textAlign = textAlignment
     )

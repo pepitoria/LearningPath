@@ -15,6 +15,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.franciscogarciagarzon.learningpath.R
 import com.franciscogarciagarzon.learningpath.domain.model.PokemonDetailDto
@@ -86,7 +87,7 @@ fun PokemonDetail(
                     horizontalArrangement = Arrangement.Start
                 ) {
                     BoldLabel(text = "Weight: ")
-                    RegularLabel(text = "${pokemonDetail.weight / 10} Kg")
+                    RegularLabel(text = "${pokemonDetail.weight / 10}Kg")
                 }
 
                 Row(
@@ -95,7 +96,7 @@ fun PokemonDetail(
                     horizontalArrangement = Arrangement.End
                 ) {
                     BoldLabel(text = "Height")
-                    RegularLabel(text = "${pokemonDetail.height * 10} cm")
+                    RegularLabel(text = "${pokemonDetail.height * 10}cm")
                 }
             }
             // stats
@@ -118,4 +119,13 @@ fun PokemonDetail(
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun DetailPreview() {
+    val pokemonDetail = PokemonDetailDto(weight = 10000000, height = 10000)
+    val innerPadding = PaddingValues()
+    PokemonDetail(pokemonDetail, innerPadding)
+
 }

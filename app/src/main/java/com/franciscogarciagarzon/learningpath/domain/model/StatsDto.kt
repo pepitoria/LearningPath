@@ -1,7 +1,6 @@
 package com.franciscogarciagarzon.learningpath.domain.model
 
-import android.util.Log
-import com.franciscogarciagarzon.learningpath.data.model.StatsDao
+import com.franciscogarciagarzon.learningpath.data.remote.model.ExternalStatDao
 
 data class StatsDto(
     val attack: StatDto = StatDto(),
@@ -13,15 +12,32 @@ data class StatsDto(
 )
 
 
-fun StatsDao.toStatsDto(): StatsDto {
-    Log.d("StatsDto", "stats: $this")
+fun List<ExternalStatDao>.toStatsDto(): StatsDto {
+    var attack: StatDto = StatDto()
+    var defense: StatDto = StatDto()
+    var hp: StatDto = StatDto()
+    var specialAttack: StatDto = StatDto()
+    var specialDefense: StatDto = StatDto()
+    var speed: StatDto = StatDto()
 
-    return StatsDto(
-        attack = this.attack.toStatDto(),
-        defense = this.defense.toStatDto(),
-        hp = this.hp.toStatDto(),
-        specialAttack = this.specialAttack.toStatDto(),
-        specialDefense = this.specialDefense.toStatDto(),
-        speed = this.speed.toStatDto()
+    for (stat in this) {
+        when (stat.stat.name) {
+            "attack" -> attack = StatDto(name = stat.stat.name, value = stat.baseStat)
+            "defense" -> defense = StatDto(name = stat.stat.name, value = stat.baseStat)
+            "hp" -> hp = StatDto(name = stat.stat.name, value = stat.baseStat)
+            "special-attack" -> specialAttack = StatDto(name = "Sp. Attack", value = stat.baseStat)
+            "special-defense" -> specialDefense = StatDto(name = "Sp. Defense", value = stat.baseStat)
+            "speed" -> speed = StatDto(name = stat.stat.name, value = stat.baseStat)
+        }
+    }
+
+    return com.franciscogarciagarzon.learningpath.domain.model.StatsDto(
+        attack = attack,
+        defense = defense,
+        hp = hp,
+        specialAttack = specialAttack,
+        specialDefense = specialDefense,
+        speed = speed
     )
+
 }

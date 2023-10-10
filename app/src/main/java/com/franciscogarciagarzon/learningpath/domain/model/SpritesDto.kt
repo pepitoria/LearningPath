@@ -1,6 +1,6 @@
 package com.franciscogarciagarzon.learningpath.domain.model
 
-import com.franciscogarciagarzon.learningpath.data.model.SpritesDao
+import com.franciscogarciagarzon.learningpath.data.remote.model.SpritesDao
 
 data class SpritesDto(
     val backDefault: String = "",
@@ -12,6 +12,7 @@ data class SpritesDto(
     val frontShiny: String = "",
     val frontShinyFemale: String? = null,
 )
+
 
 fun SpritesDao.toSpritesDto(): SpritesDto {
     return SpritesDto(

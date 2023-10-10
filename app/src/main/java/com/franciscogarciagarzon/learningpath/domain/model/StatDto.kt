@@ -1,7 +1,7 @@
 package com.franciscogarciagarzon.learningpath.domain.model
 
 import android.util.Log
-import com.franciscogarciagarzon.learningpath.data.model.StatDao
+import com.franciscogarciagarzon.learningpath.data.mock.model.StatDao
 
 data class StatDto(val name: String = "", val value: Int = -1)
 
