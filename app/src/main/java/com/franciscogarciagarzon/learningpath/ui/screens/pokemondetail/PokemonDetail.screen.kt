@@ -11,7 +11,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.franciscogarciagarzon.learningpath.ui.screens.navigation.TopNavBar
 import com.franciscogarciagarzon.learningpath.ui.theme.LearningPathTheme
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonDetail(id: String, navigateUp: () -> Unit = {}) {
@@ -24,15 +23,13 @@ fun PokemonDetail(id: String, navigateUp: () -> Unit = {}) {
                 TopNavBar(
                     title = pokemonDetail.name,
                     modifier = Modifier,
-                    upNavigation = navigateUp
+                    upNavigation = navigateUp,
                 )
             },
             content = { innerPadding ->
                 Log.d("PokemonDetailScreen", "Composable pokemonDetail: $pokemonDetail")
                 PokemonDetail(pokemonDetail, innerPadding)
-            }
+            },
         )
-
     }
-
 }

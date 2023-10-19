@@ -11,7 +11,7 @@ import com.franciscogarciagarzon.learningpath.domain.model.PokemonListDto
 fun PokemonList(
     pokemonList: PokemonListDto,
     innerPadding: PaddingValues,
-    showPokemonDetail: (pokemonName: String) -> Unit
+    showPokemonDetail: (pokemonName: String) -> Unit,
 ) {
     LazyColumn(modifier = androidx.compose.ui.Modifier.padding(innerPadding)) {
 //        val pokemonList = MockDataSource().getPokemonList()
@@ -21,8 +21,6 @@ fun PokemonList(
                 Log.d("ListItem", "clicked on ${pokemon.name}")
                 showPokemonDetail(pokemon.name)
             })
-
         }
-
     }
 }

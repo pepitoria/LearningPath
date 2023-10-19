@@ -15,29 +15,29 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.franciscogarciagarzon.learningpath.ui.screens.navigation.BottomNavBar
 import com.franciscogarciagarzon.learningpath.ui.theme.LearningPathTheme
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
 fun PokemonList(
     showPokemonDetail: (pokemonName: String) -> Unit = {},
     homeNavigation: () -> Unit = {},
-    favNavigation: () -> Unit = {}
+    favNavigation: () -> Unit = {},
 ) {
-
     val viewModel = viewModel<PokemonListViewModel>()
     val pokemonListFlow by viewModel.uiState.collectAsState()
     viewModel.getPokemonList()
     Log.d("PokemonList.screen", "pokemonListFlow: $pokemonListFlow")
     LearningPathTheme {
         Scaffold(
-
             content = { innerPadding ->
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
+                ) {
                     PokemonList(
                         pokemonList = pokemonListFlow,
                         innerPadding = innerPadding,
-                        showPokemonDetail = showPokemonDetail
+                        showPokemonDetail = showPokemonDetail,
                     )
                 }
             },
@@ -49,13 +49,9 @@ fun PokemonList(
             },
         )
 
-
         // A surface container using the 'background' color from the theme
-
     }
-
 }
-
 
 @Preview(showBackground = true)
 @Composable

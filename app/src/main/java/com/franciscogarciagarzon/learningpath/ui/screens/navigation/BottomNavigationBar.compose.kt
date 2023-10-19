@@ -31,7 +31,7 @@ fun BottomNavBar(
                 homeNavigation()
             },
             label = { Text("Home") },
-            icon = { Icon(Icons.Default.Home, "Home") }
+            icon = { Icon(Icons.Default.Home, "Home") },
         )
         NavigationBarItem(
             selected = false,
@@ -40,9 +40,7 @@ fun BottomNavBar(
                 favNavigation()
             },
             label = { Text("Fav") },
-            icon = { Icon(Icons.Default.Favorite, "Fav") }
+            icon = { Icon(Icons.Default.Favorite, "Fav") },
         )
     }
-
 }
-
